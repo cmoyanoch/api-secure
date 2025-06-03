@@ -1,0 +1,16 @@
+{
+  "name": "api-secure",
+  "version": "1.0.0",
+  "description": "Una API HTTPS simple con Node.js, Express y CORS.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "cmoyanoch",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}

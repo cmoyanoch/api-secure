@@ -1,0 +1,19 @@
+version: '3.8' 
+
+services:
+  api-secure:
+    build: .
+    ports:
+      - "3443:3443"
+    # Monta volúmenes para hacer persistir datos o compartir archivos.
+    # Aquí, montamos tu carpeta local 'ssl' (donde están tus certificados)
+    # al directorio '/app/ssl' dentro del contenedor.
+    # Esto es CRÍTICO para que la API pueda encontrar y leer los certificados.
+    volumes:
+      - ./ssl:/app/ssl
+    # Configura el contenedor para que se reinicie automáticamente si se detiene (por ejemplo, por un error).
+    restart: always
+    # Define variables de entorno que estarán disponibles dentro del contenedor.
+    # Aunque tu app.js ya usa un valor por defecto, es buena práctica explicitarlo.
+    environment:
+      - PORT=3443
